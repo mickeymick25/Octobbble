@@ -1,24 +1,11 @@
-# README
+# Octobbble
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The aim of the project is to make a copycat of dribbble's website applied to the ux-tribe. The goal is to make projects more visible than what's Google Drive exposed.
 
-Things you may want to cover:
+* Docker
+The project is based on docker & docker-compose. I followed the this [tutorial](https://medium.com/firehydrant-io/developing-a-ruby-on-rails-app-with-docker-compose-d75b20334634)
+in order to run a web application based on rails.
 
-* Ruby version
+* Rails
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Postgresql
