@@ -48,7 +48,10 @@
         <% if user_signed_in? %>
           <div class = "navbar-item has-dropdown is-hoverable">
             <a class = "navbar-link" href="#">
-            <%= current_user.name %>
+              <figure class="image is-24x24">
+                <%= image_tag(current_user.image , class:'is-rounded') %>
+              </figure>
+              <%= current_user.name %>
             </a>
 
             <div class = "navbar-dropdown is-right">

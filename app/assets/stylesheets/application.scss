@@ -47,6 +47,9 @@ html, body {
   font-family: $family-handwriting;
   font-weight: 200;
 }
+.navbar-item .image{
+	margin-right: 10px;
+}
 
 #drop_zone {
 	position: relative;
