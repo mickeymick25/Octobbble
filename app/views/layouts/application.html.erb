@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin:'anonymous' %>
     <%= favicon_link_tag 'favicon.ico' %>
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -34,46 +33,41 @@
      </div>
     </div>
 
-     <div id="navbar" class="navbar-menu">
-
-       <div class="navbar-start">
-         <div class="navbar-item">
-           <div class="field is-grouped">
-             <p class="control">
-               <%#= link_to 'Shots', root_path , class:"button is-dark" %>
-             </p>
-           </div>
+    <div id="navbar" class="navbar-menu">
+      <div class="navbar-start">
+       <div class="navbar-item">
+         <div class="field is-grouped">
+           <p class="control">
+             <%#= link_to 'Shots', root_path , class:"button is-dark" %>
+           </p>
          </div>
        </div>
+      </div>
 
-       <div class="navbar-end">
-         <div class="navbar-item">
-           <div class="field is-grouped">
-             <% if user_signed_in? %>
-             <p class="control">
-               <%= link_to new_shot_path, class:"button is-primary"  do %>
-                 <span class="icon is-small"><i class="fa fa-upload"></i></span>
-                 <span>New Shot</span>
-               <% end %>
-             </p>
-             <p class="control">
-               <%= link_to current_user.name, edit_user_registration_path, class:"button is-dark" %>
-             </p>
-             <p class="control">
-               <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class:"button is-dark" %>
-             </p>
-             <% else %>
-             <p class="control">
-                <% link_to "Se connecter", new_user_session_path, class:"button is-dark" %>
-             </p>
-             <p class="control">
-               <% link_to "S'inscrire", new_user_registration_path, class:"button is-dark"%>
-             </p>
-             <% end %>
-           </div>
-         </div>
-       </div>
-     </div>
+      <div class = "navbar-end">
+        <% if user_signed_in? %>
+          <div class = "navbar-item has-dropdown is-hoverable">
+            <a class = "navbar-link" href="#">
+            <%= current_user.name %>
+            </a>
+
+            <div class = "navbar-dropdown is-right">
+              <!-- <a class = "navbar-item" href="#">
+              JavaScript
+              </a>
+              <a class = "navbar-item" href="#">
+              PHP
+              </a>
+              <a class = "navbar-item" href="#">
+              Java
+              </a> -->
+              <hr class = "navbar-divider">
+              <%= link_to("Déconnexion", destroy_user_session_path, class:'navbar-item')%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
     </nav>
 
     <%= yield %>

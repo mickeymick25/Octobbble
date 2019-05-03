@@ -12,13 +12,6 @@
 			<div class="container has-text-centered">
 				<div class="content is-grouped">
 
-						<% link_to new_user_session_path, class: "button is-primary is-inverted is-medium" do %>
-							<span class="icon">
-								<i class="fas fa-envelope-open"></i>
-						  </span>
-						  <span>Se connecter par email</span>
-						<% end %>
-
 						<%= link_to user_google_oauth2_omniauth_authorize_path, class: "button is-primary is-inverted is-medium" do %>
 							<span class="icon">
 						    <i class="fab fa-google"></i>
