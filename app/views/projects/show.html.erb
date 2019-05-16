@@ -1,19 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="section">
+	<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <h1 class="title is-3"><%= @project.title %></h1>
+    <div class="columns">
+			<div class="column is-8">
+				<span class="by has-text-grey-light">by</span>
+        <div class="user-thumb">
+          <%= image_tag @project.user.image %>
+          <div class="user-name has-text-weight-bold"><%= @project.user.name %></div>
+				</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
+        <div class="shot-time"><span class="has-text-grey-light">posted</span>
+          <span class="has-text-weight-semibold">
+					 <%= @project.created_at.strftime("%m/%d/%Y") %>
+				  </span>
+        </div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+      </div>
+    </div>
+
+
+
+
+    <p>
+      <strong>Description:</strong>
+      <%= @project.description %>
+    </p>
+
+    <p>
+      <strong>image:</strong>
+      <%= image_tag @project.cover %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @project.user_id %>
+    </p>
+
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Back', projects_path %>
+
+  </div>
+</div>

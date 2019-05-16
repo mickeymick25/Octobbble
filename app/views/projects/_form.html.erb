@@ -1,14 +1,72 @@
+<%= simple_form_for @project, html: { multipart: true } do |f| %>
+  <div class="columns is-centered">
+    <div class="column is-half">
+        <%= f.error_notification %>
+        <br />
 
-<%= simple_form_for(@project) do |f| %>
-  <%= f.error_notification %>
+        <div class="field">
+          <div class="control">
+            <%= f.input :title, label: "Quel est le nom de ta mission ?", input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :user_id %>
-  </div>
+        <% unless @project.cover.blank? %>
+          <%= image_tag (@project.cover_url), id: "previewImage" %>
+        <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <output id="list"></output>
+        <div id="drop_zone">Ajoute l'illustration de ton projet ici</div>
+        <br />
+        <%= f.input :cover, label: false, input_html: { class: "file-input", type: "file" }, wrapper: false, label_html: { class: "file-label" } %>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :description, label: "Un mot sur le projet ...", input_html: { class: "textarea"}, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <label class='label'>Y'a t-il d'autres membres de la tribu UX avec toi ?</label>
+            <div class="user tags">
+              <span id="usertag" class="tag is-white is-medium">
+                <figure class="image is-24x24">
+                  <%= image_tag(current_user.image , class:'is-rounded') %>
+                </figure>
+                Victor Pichon
+              </span>
+              <br />
+              <span id="usertag" class="tag is-white is-medium">
+                <figure class="image is-24x24">
+                  <%= image_tag(current_user.image , class:'is-rounded') %>
+                </figure>
+                Jocerand Ducroux
+              </span>
+              <br />
+              <span id="usertag" class="tag is-white is-medium">
+                <figure class="image is-24x24">
+                  <%= image_tag(current_user.image , class:'is-rounded') %>
+                </figure>
+                Philippe Sourget
+              </span>
+              <br />
+              <span id="usertag" class="tag is-white is-medium usertag">
+                <figure class="image is-24x24">
+                  <%= image_tag(current_user.image , class:'is-rounded') %>
+                </figure>
+                <%= current_user.name %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          <div class="field">
+          	<div class="control">
+            	<%= f.button :submit, "Créer le projet",class:"button is-primary" %>
+            </div>
+          </div>
+        </p>
+    </div>
   </div>
 <% end %>

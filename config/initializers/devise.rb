@@ -265,7 +265,7 @@ Devise.setup do |config|
     Rails.application.secrets.google_client_id,
     Rails.application.secrets.google_client_secret,
     {
-      scope: 'userinfo.email, userinfo.profile, drive.readonly',
+      scope: 'userinfo.email, userinfo.profile, admin.directory.group.readonly',
       prompt: 'select_account',
       image_aspect_ratio: 'square',
       image_size: 50

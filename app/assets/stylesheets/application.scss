@@ -43,11 +43,18 @@ html, body {
 	min-height: 100vh;
 	background-color: #f4f4f4;
 }
+.navbar{
+	border-bottom: 1px solid #ddd
+}
 .navbar-brand .title{
   font-family: $family-handwriting;
   font-weight: 200;
 }
 .navbar-item .image{
+	margin-right: 10px;
+}
+
+.usertag .image{
 	margin-right: 10px;
 }
 

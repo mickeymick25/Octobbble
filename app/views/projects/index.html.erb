@@ -1,13 +1,14 @@
 <%= render 'hero' %>
 
 <section class="section">
-  <div class="projects">
+  <div class="projects tile">
+
     <% @projects.each do |project| %>
       <div class="project-grid-item">
         <div class="project-wrapper">
 
         <%= link_to project, class: "project" do %>
-          <%= image_tag(project.user_project_url) %>
+          <%= image_tag(project.cover_url) %>
           <div class="project-data">
             <h3 class="project-title"><%= project.title %></h3>
             <div class="project-description"><%= truncate(project.description, length: 60) %></div>
@@ -23,46 +24,30 @@
             <div class="level-item views data">
               <%= link_to project do %>
                 <span class="icon"><i class="fa fa-eye"></i></span>
-                <%= project.impressionist_count %>
+                <%#= project.impressionist_count %>
               <% end %>
             </div>
             <div class="level-item comments data">
               <%= link_to project do %>
                 <span class="icon"><i class="fa fa-comment"></i></span>
-                 <%= project.comments.count %>
+                 <%#= project.comments.count %>
               <% end %>
             </div>
             <div class="level-item likes">
-              <% if user_signed_in? %>
-
-                <% if current_user.liked? project %>
-                  <%= link_to unlike_project_path(project), method: :put, class: "unlike_project" do %>
-                    <span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
-                    <span class="vote_count"><%= project.get_likes.size %></span>
-                  <% end %>
-                <% else %>
-                  <%= link_to like_project_path(project), method: :put, class: "like_project" do %>
-                    <span class="icon"><i class="fa fa-heart"></i></span>
-                    <span class="vote_count"><%= project.get_likes.size %></span>
-                  <% end %>
-                <% end %>
-              <% else %>
-                  <%= link_to like_project_path(project), method: :put, class: "like_project" do %>
-                    <span class="icon"><i class="fa fa-heart"></i></span>
-                    <span class="vote_count"><%= project.get_likes.size %></span>
-                  <% end %>
-              <% end %>
+            
 
             </div>
           </div>
         </nav>
         </div>
+
         <div class="user-data">
           <div class="user-thumb">
             <%= gravatar_image_tag(project.user.email.gsub('spam', 'mdeering'), alt: project.user.name, gravatar: { size: 20 }); %>
           </div>
           <div class="user-name"><%= project.user.name %></div>
         </div>
+
       </div>
     <% end %>
   </div>
