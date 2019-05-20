@@ -10,6 +10,10 @@
 # Ignore secrets file
 /config/secrets.yml
 
+# Ignore uploads files
+/public/uploads/*
+
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

@@ -1,3 +1,57 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero{
+	background-size: cover;
+	background-position: center bottom 30%;
+	/* Add the blur effect */
+	// filter: blur(8px);
+	// -webkit-filter: blur(8px);
+}
+
+.user-thumb{
+    display: inherit;
+}
+
+.user-thumb .image{
+	float: left;
+	margin:0;
+	margin-right: 10px;
+}
+
+// .user-thumb-cover{
+// 	position: relative;
+// 	display: -webkit-inline-box;
+//   color: rgb(255, 255, 255);
+// 	background-color: rgba(0, 0, 0, 0.4);
+// 	padding: 0.2em 0.4em 0.2em 0.4em;
+// 	border-radius: 1.4em;
+// }
+
+// .user-thumb-cover .image{
+// 	float: left;
+// 	margin:0;
+// 	margin-right: 10px;
+// }
+
+.project-thumb-logo .image{
+	position: relative;
+	display: -webkit-inline-box;
+	background-color: rgba(255, 255, 255, 1);
+	border: 4px solid white;
+	border-radius: 4em;
+}
+
+.panel{
+  font-size: 1em;
+  color: #999;
+
+  background-color: white;
+}
+.panel .panel-heading{
+  font-size: 1em;
+  color: #999;
+
+  background-color: inherit;
+}

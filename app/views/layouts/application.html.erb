@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
   <head>
     <title>Octobbble</title>
     <%= csrf_meta_tags %>
@@ -22,7 +22,7 @@
       </div>
     <% end %>
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
      <div class="navbar-brand">
        <%= link_to root_path, class:"navbar-item" do %>
          <h1 class="title is-5 has-text-grey-dark">Octobbble</h1>
@@ -48,7 +48,7 @@
       <div class = "navbar-end">
         <% if user_signed_in? %>
           <div class = "navbar-item has-dropdown is-hoverable">
-            <a class = "navbar-link" href="#">
+            <a class = "navbar-link user-thumb" href="#">
               <figure class="image is-24x24">
                 <%= image_tag(current_user.image , class:'is-rounded') %>
               </figure>

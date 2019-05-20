@@ -1,0 +1,27 @@
+<section class="hero is-primary is-bold" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(<%= project.cover_url %>)">
+	<div class="hero-head">
+    <header class="navcover">
+      <div class="container">
+					<%= link_to projects_path, class:'button is-light is-outlined' do %>
+						<span class="icon">
+							<i class="fas fa-chevron-circle-left"></i>
+						</span>
+						<span>Retour</span>
+					<% end %>
+			</div>
+		</header>
+	</div>
+
+	<div class="hero-body hero-project-body">
+		<div class="container has-text-centered">
+			<div class="project-thumb-logo">
+				<figure class="image is-128x128">
+					<%= image_tag('https://cdn.worldvectorlogo.com/logos/snapchat.svg', class:'is-rounded') %>
+				</figure>
+				<h1 class="title is-3"> <%= project.title %> </h1>
+				<h2 class="subtitle is-6">crée <%= project.created_at.strftime("%d %b %Y") %></h2>
+			</div>
+		</div>
+
+	</div>
+</section>
