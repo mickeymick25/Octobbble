@@ -4,67 +4,20 @@
 	<div class="container">
 		<div class="columns">
 
-		  <div class="column is-7 is-offset-1">
-				<nav class="panel">
-				  <p class="panel-heading">
-				    Project feed time line
-				  </p>
-				</nav>
+		  <div class="column is-half is-offset-2">
+				<% if user_signed_in? %>
+					<%= render 'shots/form', project: @project %>
+				<% end %>
+
+				<% @project.shots.order('created_at DESC').each do |shot| %>
+					<%= render 'project_post', shot: shot  %>
+				<% end %>
 		  </div>
 
 			<div class="column is-3">
-				<nav class="panel panel-projet">
-					<p class="panel-heading">
-				    Le projet
-				  </p>
-
-					<p class="panel-block">
-						<%= @project.description %>
-				  </p>
-
-					<% if user_signed_in? && (current_user.id == @project.user_id) %>
-						<div class="panel-block">
-							<%= link_to 'Modifier le projet', edit_project_path(@project), class: "button is-dark is-outlined is-fullwidth" %>
-						</div>
-						<div class="panel-block">
-							<%= link_to 'Supprimer le projet', project_path, class:'button is-danger is-outlined is-fullwidth', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce projet ?'} %>
-					  </div>
-					<% end %>
-				</nav>
-
-				<nav class="panel panel-team">
-					<p class="panel-heading">
-				    L'équipe
-				  </p>
-
-					<a class="panel-block">
-						<div class="user-thumb">
-							<figure class="image is-24x24">
-								<%= image_tag(@project.user.image, class:'is-rounded') %>
-							</figure>
-							<div class="user-name"><%= @project.user.name %></div>
-						</div>
-				  </a>
-				</nav>
-
-				<nav class="panel panel-team">
-					<p class="panel-heading">
-				    Les ressources
-				  </p>
-
-					<a class="panel-block">
-				    <span class="panel-icon">
-				      <i class="fab fa-google-drive" aria-hidden="true"></i>
-				    </span>
-				    Google Drive
-				  </a>
-					<a class="panel-block">
-				    <span class="panel-icon">
-				      <i class="fas fa-paperclip" aria-hidden="true"></i>
-				    </span>
-				    Octopod
-				  </a>
-				</nav>
+				<%= render 'project_detail' %>
+				<%= render 'team' %>
+				<%= render 'project_links' %>
 		  </div>
 
 		</div>

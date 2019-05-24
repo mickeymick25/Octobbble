@@ -1,0 +1,14 @@
+<nav class="panel panel-team">
+  <p class="panel-heading">
+    L'équipe
+  </p>
+
+  <a class="panel-block">
+    <div class="user-thumb">
+      <figure class="image is-24x24">
+        <%= image_tag(@project.user.image, class:'is-rounded') %>
+      </figure>
+      <div class="user-name"><%= @project.user.name %></div>
+    </div>
+  </a>
+</nav>

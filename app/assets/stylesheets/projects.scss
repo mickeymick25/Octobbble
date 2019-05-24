@@ -42,6 +42,9 @@
 	border: 4px solid white;
 	border-radius: 4em;
 }
+.post-card{
+	margin-bottom: 1em;
+}
 
 .panel{
   font-size: 1em;
@@ -52,6 +55,27 @@
 .panel .panel-heading{
   font-size: 1em;
   color: #999;
-
   background-color: inherit;
+}
+
+.card-header-options{
+	padding: 0.6em;
+}
+
+// .to-stick{
+// 	position: sticky;
+// 	top: 4em;
+// }
+
+.panel-projet{
+	position: sticky;
+	top: 4em;
+}
+.panel-team{
+	position: sticky;
+	top: 16em;
+}
+.panel-links{
+	position: sticky;
+	top: 21.5em;
 }

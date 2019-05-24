@@ -4,11 +4,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all.order('created_at DESC')
+    @projects = Project.all.order('updated_at DESC')
   end
 
   # GET /projects/1
   def show
+    @shot = @project.shots.build
   end
 
   # GET /projects/new

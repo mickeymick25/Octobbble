@@ -16,18 +16,19 @@
 
               <div class="project-data card-content">
                 <div class="content">
-                  <h3 class="project-title"><%= project.title %></h3>
+                  <h4 class="project-title"><%= project.title %></h4>
+                  <span class="project-time"><%= time_ago_in_words(project.updated_at) %></span>
                   <div class="project-description"><%= truncate(project.description, length: 60) %></div>
-                  <div class="project-time"><%= time_ago_in_words(project.created_at) %></div>
 
-                  <div class="user-data">
+                  <!-- <div class="user-data">
                     <div class="user-thumb">
                       <figure class="image is-24x24">
-                        <%= image_tag(project.user.image, class:'is-rounded') %>
+                        <%#= image_tag(project.user.image, class:'is-rounded') %>
                       </figure>
-                      <div class="user-name has-text-weight-bold"><%= project.user.name %></div>
+                      <div class="user-name has-text-weight-bold"><%#= project.user.name %></div>
                     </div>
-                  </div>
+                  </div> -->
+
                 </div>
               </div>
 

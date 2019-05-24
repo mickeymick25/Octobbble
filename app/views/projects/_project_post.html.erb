@@ -1,0 +1,54 @@
+<div class="card post-card">
+  <header class="card-header">
+    <div class="card-header-title">
+      <div class="user-thumb">
+        <figure class="image is-24x24">
+          <%= image_tag(@project.user.image, class:'is-rounded') %>
+        </figure>
+        <div class="user-name"><%= @project.user.name %></div>
+      </div>
+    </div>
+    <div class="card-header-options">
+
+      <div class="dropdown is-hoverable is-right">
+        <div class="dropdown-trigger">
+          <button class="button is-text" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span class="icon">
+              <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="dropdown-item">
+              Partager
+            </a>
+            <a class="dropdown-item">
+              Modifier
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">
+              Supprimer
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="card-image">
+    <figure class="image">
+      <%= image_tag(shot.user_shot) %>
+    </figure>
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+      <%= shot.description %>
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1"><%= time_ago_in_words(shot.created_at) %></time>
+    </div>
+  </div>
+</div>
