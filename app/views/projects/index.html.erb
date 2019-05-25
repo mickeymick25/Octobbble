@@ -6,34 +6,7 @@
 
       <% @projects.each do |project| %>
         <div class="column is-3">
-          <div class="card">
-            <%= link_to project, class: "project" do %>
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <%= image_tag(project.cover_url) %>
-                </figure>
-              </div>
-
-              <div class="project-data card-content">
-                <div class="content">
-                  <h4 class="project-title"><%= project.title %></h4>
-                  <span class="project-time"><%= time_ago_in_words(project.updated_at) %></span>
-                  <div class="project-description"><%= truncate(project.description, length: 60) %></div>
-
-                  <!-- <div class="user-data">
-                    <div class="user-thumb">
-                      <figure class="image is-24x24">
-                        <%#= image_tag(project.user.image, class:'is-rounded') %>
-                      </figure>
-                      <div class="user-name has-text-weight-bold"><%#= project.user.name %></div>
-                    </div>
-                  </div> -->
-
-                </div>
-              </div>
-
-            <% end %>
-          </div>
+          <%= render 'project_card', project: project %>
         </div>
       <% end %>
 

@@ -3,8 +3,6 @@
 <section class="section">
   <div class="shots">
     <% @shots.each do |shot| %>
-      <div class="shot-grid-item">
-        <div class="shot-wrapper">
 
         <%= link_to project_shot_path(shot.project, shot), class: "shot" do %>
           <%= image_tag(shot.user_shot_url) %>
@@ -17,14 +15,6 @@
           </div>
         <% end %>
 
-        </div>
-        <div class="user-data">
-          <div class="user-thumb">
-            <%= gravatar_image_tag(shot.user.email.gsub('spam', 'mdeering'), alt: shot.user.name, gravatar: { size: 20 }); %>
-          </div>
-          <div class="user-name"><%= shot.user.name %></div>
-        </div>
-      </div>
     <% end %>
   </div>
 </section>

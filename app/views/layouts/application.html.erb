@@ -56,19 +56,26 @@
             </a>
 
             <div class = "navbar-dropdown is-right">
-              <!-- <a class = "navbar-item" href="#">
-              JavaScript
+              <a class = "navbar-item disabled" href="#">
+              Mon compte
               </a>
-              <a class = "navbar-item" href="#">
-              PHP
-              </a>
-              <a class = "navbar-item" href="#">
-              Java
-              </a> -->
               <hr class = "navbar-divider">
               <%= link_to("Déconnexion", destroy_user_session_path, class:'navbar-item')%>
             </div>
           </div>
+        <% else %>
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+    						<%= link_to user_google_oauth2_omniauth_authorize_path, class: "button is-light" do %>
+    							<span class="icon">
+    						    <i class="fab fa-google"></i>
+    						  </span>
+    						  <span>Se connecter</span>
+    						<% end %>
+            </p>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
