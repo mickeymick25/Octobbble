@@ -44,10 +44,15 @@
 
   <div class="card-content">
     <div class="content">
-      <%= shot.description %>
-      <a href="#">#css</a> <a href="#">#responsive</a>
+      <div class="user-thumb">
+        <figure class="image is-24x24">
+          <%= image_tag(@project.user.image, class:'is-rounded') %>
+        </figure>
+        <div class="user-name"><%= @project.user.name %></div>
+        <div class="description"><%= shot.description %></div>
+      </div>
       <br>
-      <time datetime="2016-1-1"><%= time_ago_in_words(shot.created_at) %></time>
+      <div class="time"><%= time_ago_in_words(shot.created_at) %></div>
     </div>
   </div>
 </div>
