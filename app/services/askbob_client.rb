@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'digest/hmac'
 
-class askbobClient
+class AskbobClient
   BASE_URL = "https://askbob.octo.com/oauth/token";
 
   def initialize(apiKey, secretKey)
