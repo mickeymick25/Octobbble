@@ -1,5 +1,6 @@
 <div class="card post-card">
   <header class="card-header">
+
     <div class="card-header-title">
       <div class="user-thumb">
         <figure class="image is-24x24">
@@ -34,10 +35,11 @@
         </div>
       </div>
     </div>
+
   </header>
 
   <div class="card-image">
-    <figure class="image">
+    <figure class="image thumb">
       <%= image_tag(shot.user_shot) %>
     </figure>
   </div>
@@ -48,11 +50,12 @@
         <figure class="image is-24x24">
           <%= image_tag(@project.user.image, class:'is-rounded') %>
         </figure>
-        <div class="user-name"><%= @project.user.name %></div>
-        <div class="description"><%= shot.description %></div>
+        <div class="user-name"> <strong><%= @project.user.name %></strong> </div>
+        <div class="description"> <%= shot.description %> </div>
       </div>
       <br>
       <div class="time"><%= time_ago_in_words(shot.created_at) %></div>
     </div>
   </div>
+
 </div>

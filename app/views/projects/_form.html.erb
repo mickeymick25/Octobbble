@@ -1,6 +1,8 @@
 <%= simple_form_for @project, html: { multipart: true } do |f| %>
+
   <div class="columns is-centered">
     <div class="column is-half">
+
         <%= f.error_notification %>
         <br />
 
@@ -10,12 +12,34 @@
           </div>
         </div>
 
+        <div class="columns">
+          <div class="column is-one-fifth">
+
+            <output id="list_logo"></output>
+            <div id="drop_zone_logo" class="drop_zone">
+              <% unless @project.clientlogo.blank? %>
+              <%= image_tag (@project.clientlogo), id: "previewImage" %>
+              <% end %>
+              Ajoute le logo du client ici</div>
+            <br />
+            <%= f.input :clientlogo, label: false, input_html: { class: "file-input",  type: "file", accept: "image/*", capture:"camera"}, wrapper: false, label_html: { class: "file-label" } %>
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <div class="control">
+                <%= f.input :clientname, label: "Ton client ?", input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <% unless @project.cover.blank? %>
           <%= image_tag (@project.cover_url), id: "previewImage" %>
         <% end %>
 
-        <output id="list"></output>
-        <div id="drop_zone">Ajoute l'illustration de ton projet ici</div>
+        <output id="list_cover"></output>
+        <div id="drop_zone_cover" class="drop_zone">Ajoute l'illustration de ton projet ici</div>
         <br />
         <%= f.input :cover, label: false, input_html: { class: "file-input", type: "file" }, wrapper: false, label_html: { class: "file-label" } %>
 
@@ -59,14 +83,16 @@
             </div>
           </div>
         </div>
+        <br />
 
-        <p>
-          <div class="field">
-          	<div class="control">
-            	<%= f.button :submit, "Publier le projet",class:"button is-primary" %>
-            </div>
+        <div class="field">
+        	<div class="control">
+            <%= link_to 'Retour', projects_path, class:"button is-grey"%>
+            <%= link_to 'Voir le projet', @project , class:"button is-grey" %>
+          	<%= f.button :submit, "Publier le projet", class:"button is-primary" %>
           </div>
-        </p>
+        </div>
+
     </div>
   </div>
 <% end %>

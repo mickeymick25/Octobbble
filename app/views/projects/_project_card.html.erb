@@ -1,17 +1,24 @@
 <div class="card">
   <%= link_to project, class: "project" do %>
     <div class="card-image">
-      <figure class="image is-3by2">
-        <%= image_tag(project.cover_url) %>
+      <figure class="image is-square thumb">
+        <%= image_tag(project.cover_url, class:'thumb') %>
       </figure>
+
       <div class="client_logo">
         <div class="project-client-logo">
-  				<figure class="image is-32x32">
-  					<%= image_tag('https://cdn.worldvectorlogo.com/logos/snapchat.svg', class:'is-rounded') %>
-  				</figure>
-          <div class="client_name"> [Client Name] </div>
+
+          <% unless project.clientlogo.blank? %>
+  				    <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= project.clientlogo %>)">
+          <% else %>
+              <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://cdn.worldvectorlogo.com/logos/snapchat.svg')">
+          <% end %>
+  				    </figure>
+
+          <div class="client_name"> <%= project.clientname %> </div>
   			</div>
       </div>
+
     </div>
 
     <div class="project-data card-content">

@@ -30,7 +30,7 @@ class UserShotUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [400, 300]
+    process resize_to_fit: [200, 300]
   end
 
   version :full do

@@ -88,7 +88,7 @@ document.addEventListener("turbolinks:load", function() {
 						dropZone.classList.remove('dragging');
 						dropZone.classList.remove('fire');
 					}, false);
-					
+
 				}
 			}
 		},

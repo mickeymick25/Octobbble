@@ -4,5 +4,6 @@ class Project < ApplicationRecord
   has_many :shots
 
   mount_uploader :cover, CoverUploader
+  mount_uploader :clientlogo, ClientlogoUploader
 
 end

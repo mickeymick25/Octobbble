@@ -56,7 +56,18 @@ html, body {
   font-weight: 200;
 }
 
-#drop_zone {
+.notification {
+	border-radius: none;
+}
+.notification:not(:last-child) {
+	margin-bottom: 0;
+}
+
+.visible {
+	display: block !important;
+}
+
+.drop_zone {
 	position: relative;
 	padding: 3rem 0;
 	border: 1px dashed #ccc;
@@ -85,19 +96,12 @@ html, body {
 	  justify-content: center;
 	  align-items: center;
 	  font-size: 1.5em;
-	  background-color: rgba($green, .3);
+	  background-color: rgba(green, .3);
 	  pointer-events: none;
 	  z-index: 99;
 	}
 }
 
-.notification {
-	border-radius: none;
-}
-.notification:not(:last-child) {
-	margin-bottom: 0;
-}
-
-.visible {
-	display: block !important;
+#drop_zone_logo{
+	padding: 0;
 }

@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Le projet a été crée avec succès.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -38,9 +38,10 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
+    # @project = Project.find(params[:id])
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Le projet a été mis à jour avec succès.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -66,6 +67,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.require(:project).permit(:title, :description, :cover)
+      params.require(:project).permit(:title, :description, :cover, :clientname, :clientlogo)
     end
 end
