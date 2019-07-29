@@ -19,3 +19,4 @@ to lunch the rails console :
 `docker-compose run --rm web rails c`
 
 ## Postgresql
+`docker-compose run --rm web rails db:migrate`
