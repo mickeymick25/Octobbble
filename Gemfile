@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.6.2"
+ruby '2.6.2'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -14,11 +14,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem "bulma-rails", "~> 0.6.1"
+gem 'bulma-rails', '~> 0.6.1'
 gem 'devise', '~> 4.3'
-gem 'carrierwave', '~> 1.2', '>= 1.2.1'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'simple_form', '~> 3.5'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'fog-aws', '~> 3.5.2'
 gem 'impressionist', '~> 1.6'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
