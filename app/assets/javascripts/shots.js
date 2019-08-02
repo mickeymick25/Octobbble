@@ -96,11 +96,16 @@ document.addEventListener("turbolinks:load", function() {
 			$('.shot').hover(function() {
 				$(this).children('.shot-data').toggleClass('visible');
 			});
-		}
+		},
 
+		updateFile() {
+
+			document.getElementById('shot_user_shot').onchange = function () {
+				document.getElementById('filename').innerHTML = this.value;
+			};
+		},
 	};
 	Shots.previewShot();
 	Shots.shotHover();
-
-
+	Shots.updateFile();
 });
