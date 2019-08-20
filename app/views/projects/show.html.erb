@@ -6,7 +6,8 @@
 
 		  <div class="column is-half is-offset-2">
 				<% if user_signed_in? %>
-					<%= render 'shots/form', project: @project %>
+					<%#= render 'shots/form', project: @project %>
+					<%= render 'shots/direct_upload', project: @project %>
 				<% end %>
 
 				<% @project.shots.order('created_at DESC').each do |shot| %>
