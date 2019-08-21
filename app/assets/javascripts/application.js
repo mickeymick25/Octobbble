@@ -68,18 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
             css('background', 'green').
             css('display', 'block').
             css('width', '0%').
-            text("Loading...");
+            text("Upload en cours...");
         },
         done: function(e, data) {
           submitButton.prop('disabled', false);
-          progressBar.text("Uploading done");
+          progressBar.text("Upload fini");
 
           // extract key and generate URL from response
           var key   = $(data.jqXHR.responseXML).find("Key").text();
-          var url   = '//' + form.data('host') + '/' + key;
 
           // create hidden field
-          var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+          var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: key })
           form.append(input);
         },
         fail: function(e, data) {

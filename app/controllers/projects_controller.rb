@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @shot = @project.shots.build
+    @new_shot = @project.shots.build
   end
 
   # GET /projects/new
