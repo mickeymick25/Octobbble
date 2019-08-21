@@ -4,7 +4,7 @@
     <div class="card-content">
 
       <% unless @shot.s3_key.blank? %>
-        <%= image_tag (@shot.s3_key_url), id: "previewImage" %>
+        <%= image_tag (@shot.get_media_url), id: "previewImage" %>
       <% end %>
 
       <output id="list"></output>

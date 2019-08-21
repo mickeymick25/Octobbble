@@ -1,21 +1,6 @@
 class ShotsController < ApplicationController
-  before_action :set_shot, only: [:show, :edit, :update, :destroy]
+  before_action :set_shot, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-
-  # GET /shots
-  def index
-    @shots = Shot.all
-  end
-
-  # GET /shots/1
-  def show
-  end
-
-  # GET /shots/new
-  def new
-    @project = Project.find(params[:project_id])
-    @shot = current_user.shots.build
-  end
 
   # GET /shots/1/edit
   def edit
