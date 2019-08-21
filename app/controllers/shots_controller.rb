@@ -77,6 +77,6 @@ class ShotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
-      params.require(:shot).permit(:title, :description, :user_shot)
+      params.require(:shot).permit(:title, :description, :s3_key)
     end
 end

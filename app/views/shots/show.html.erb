@@ -19,7 +19,7 @@
 			<div class="column is-8">
 				<div class="shot-container">
 					<div class="shot-full">
-						 <%= image_tag @shot.user_shot_url unless @shot.user_shot.blank? %>
+						 <%= image_tag @shot.s3_key_url unless @shot.s3_key.blank? %>
 					</div>
 
 					<% if user_signed_in? && (current_user.id == @shot.user_id) %>

@@ -45,7 +45,7 @@
 // 				// https://stackoverflow.com/questions/47515232/how-to-set-file-input-value-when-dropping-file-on-page
 // 				const dropZone = document.getElementById('drop_zone');
 // 				const target = document.documentElement;
-// 				const fileInput = document.getElementById('shot_user_shot');
+// 				const fileInput = document.getElementById('shot_s3_key');
 // 				const previewImage = document.getElementById('previewImage');
 // 				const newShotForm = document.getElementById('new_shot');
 
@@ -100,7 +100,7 @@
 
 // 		updateFile() {
 
-// 			document.getElementById('shot_user_shot').onchange = function () {
+// 			document.getElementById('shot_s3_key').onchange = function () {
 // 				document.getElementById('filename').innerHTML = this.value;
 // 			};
 // 		},
