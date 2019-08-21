@@ -6,11 +6,7 @@ class Shot < ApplicationRecord
   # mount_uploader :s3_key, UserShotUploader
 
   def generate_s3_link
-  	params = {
-      bucket: S3_BUCKET.name,
-      key: s3_key,
-      expires_in: 86400
-    }
-    PRESIGNER.presigned_url(:get_object, params)      
+  	s3_object = S3_BUCKET.object(s3_key)
+  	s3_object.presigned_url(:get, expires_in: 3600)
   end
 end
