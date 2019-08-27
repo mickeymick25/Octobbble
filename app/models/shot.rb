@@ -4,7 +4,6 @@ class Shot < ApplicationRecord
   belongs_to :project
 
   MEDIA_URL_EXPIRY = 7.days
-  # mount_uploader :s3_key, UserShotUploader
 
   def get_media_url
   	if is_media_url_expired? 
@@ -12,8 +11,8 @@ class Shot < ApplicationRecord
 	  	self.update_attributes(media_url_expiry: MEDIA_URL_EXPIRY.from_now)
 	  	s3_media_url = s3_object.presigned_url(:get, expires_in: MEDIA_URL_EXPIRY.seconds.to_i)
 	  	self.update_attributes(media_url: s3_media_url)
-	end
-	self.media_url
+  	end
+  	self.media_url
   end
 
   def is_media_url_expired?
