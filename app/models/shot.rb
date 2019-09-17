@@ -5,12 +5,23 @@ class Shot < ApplicationRecord
 
   MEDIA_URL_EXPIRY = 7.days
   MEDIA_TYPE_IMAGE = "image"
+  MEDIA_TYPE_VIDEO = "video"
   MEDIA_TYPE_UNSUPPORTED = "unsupported"
+
+  def is_image?
+    get_media_type == MEDIA_TYPE_IMAGE
+  end
+
+  def is_video?
+    get_media_type == MEDIA_TYPE_VIDEO
+  end
 
   def get_media_type
     case mime_type
     when /\Aimage/
       MEDIA_TYPE_IMAGE
+    when /\Avideo/
+      MEDIA_TYPE_VIDEO
     else
       MEDIA_TYPE_UNSUPPORTED
     end

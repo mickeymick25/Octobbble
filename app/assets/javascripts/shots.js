@@ -34,7 +34,6 @@ document.addEventListener("turbolinks:load", function() {
           var fileMimeTypeInput = $("<input />", { type:'hidden', name: 'shot[mime_type]', value: data.files[0].type })
           form.append(fileMimeTypeInput);
 
-          console.log(data)
           submitButton.prop('disabled', false);
           progressBar.text("Upload fini");
 
