@@ -2,4 +2,6 @@ default:
   image: ruby:2.6.2
 
 job:
-  script: "bundle exec rake test:models"
+  script: 
+    - "bundle install --with=test"
+    - "bundle exec rake test:models"
