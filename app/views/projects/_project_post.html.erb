@@ -40,7 +40,9 @@
 
   <div class="card-image">
     <figure class="image thumb">
-      <%= image_tag(shot.user_shot) %>
+      <%= image_tag(shot.get_media_url) if shot.is_image? %>
+      <%= video_tag(shot.get_media_url, controls: true) if shot.is_video? %>
+
     </figure>
   </div>
 

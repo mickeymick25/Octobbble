@@ -1,21 +1,6 @@
 class ShotsController < ApplicationController
-  before_action :set_shot, only: [:show, :edit, :update, :destroy]
+  before_action :set_shot, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-
-  # GET /shots
-  def index
-    @shots = Shot.all
-  end
-
-  # GET /shots/1
-  def show
-  end
-
-  # GET /shots/new
-  def new
-    @project = Project.find(params[:project_id])
-    @shot = current_user.shots.build
-  end
 
   # GET /shots/1/edit
   def edit
@@ -24,25 +9,12 @@ class ShotsController < ApplicationController
 
   # POST /shots
   def create
-    # finds the project with the associated project_id
     @project = Project.find(params[:project_id])
-    # creates the comment on the shot passing in params
     @shot = @project.shots.create(shot_params)
     @shot.user_id = current_user.id if current_user # assigns logged in user's ID to comment
     @shot.save!
 
-    #@shot = current_user.shots.build(shot_params)
-    # @shot = Shot.new(shot_params)
     redirect_to @project
-    # respond_to do |format|
-    #   if @shot.save
-    #     format.html { redirect_to @shot, notice: 'Shot was successfully created.' }
-    #     format.json { render :show, status: :created, location: @shot }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @shot.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /shots/1
@@ -77,6 +49,6 @@ class ShotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
-      params.require(:shot).permit(:title, :description, :user_shot)
+      params.require(:shot).permit(:title, :description, :s3_key, :mime_type)
     end
 end

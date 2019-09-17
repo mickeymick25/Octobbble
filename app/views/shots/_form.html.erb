@@ -3,8 +3,8 @@
     <%= f.error_notification %>
     <div class="card-content">
 
-      <% unless @shot.user_shot.blank? %>
-        <%= image_tag (@shot.user_shot_url), id: "previewImage" %>
+      <% unless @shot.s3_key.blank? %>
+        <%= image_tag (@shot.get_media_url), id: "previewImage" %>
       <% end %>
 
       <output id="list"></output>
@@ -12,7 +12,7 @@
 
         <div class="file is-centered has-name is-boxed">
           <label class="file-label">
-            <%= f.input :user_shot, label: false, input_html: { class: "file-input", type: "file", accept:"video/*;capture=camcorder" }, wrapper: false, label_html: { class: "file-label" } %>
+            <%= f.input :s3_key, label: false, input_html: { class: "file-input", type: "file", accept:"video/*;capture=camcorder" }, wrapper: false, label_html: { class: "file-label" } %>
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-camera-retro"></i>

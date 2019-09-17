@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_s3_direct_post, only: [:show]
 
   # GET /projects
   def index
@@ -9,7 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @shot = @project.shots.build
+    @new_shot = @project.shots.build
   end
 
   # GET /projects/new
@@ -68,5 +69,9 @@ class ProjectsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:title, :description, :cover, :clientname, :clientlogo)
+    end
+
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
     end
 end
