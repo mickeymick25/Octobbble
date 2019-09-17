@@ -1,10 +1,23 @@
 <%= simple_form_for([@project, @new_shot], html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
 
+  <nav class="panel panel-form">
+    <%= f.error_notification %>
+    <div class="card-content">
+
     <div class="field">
-      <%= f.label "Partager un fichier" %><br>
+      <%= f.label "Partage une photo ou une vidéo" %><br>
       <%= f.file_field :s3_key %>
     </div>
+    <div class="field">
+  		<div class="control">
+    		<%= f.input :description, input_html: { class: "textarea", placeholder:"Écris une légende...", rows:'1' } , wrapper: false, label: false,label_html: { class: "label" } %>
+    	</div>
+  	</div>
+
   	<div class="control">
     	<%= f.button :submit, 'Partager',class:"button is-info" %>
     </div>
+
+    </div>
+  </nav>
 <% end %>
