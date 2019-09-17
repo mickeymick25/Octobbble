@@ -1,7 +1,7 @@
 <%= simple_form_for([@project, @new_shot], html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
 
     <div class="field">
-      <%= f.label "Choisir une image" %><br>
+      <%= f.label "Partager un fichier" %><br>
       <%= f.file_field :s3_key %>
     </div>
   	<div class="control">

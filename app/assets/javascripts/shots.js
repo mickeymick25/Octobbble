@@ -14,8 +14,8 @@ document.addEventListener("turbolinks:load", function() {
         type:            'POST',
         autoUpload:       true,
         formData:         form.data('form-data'),
-        paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
-        dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+        paramName:        'file',
+        dataType:         'XML',
         replaceFileInput: false,
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -23,7 +23,6 @@ document.addEventListener("turbolinks:load", function() {
         },
         start: function (e) {
           submitButton.prop('disabled', true);
-
           progressBar.
             css('background', 'green').
             css('display', 'block').
@@ -31,6 +30,11 @@ document.addEventListener("turbolinks:load", function() {
             text("Upload en cours...");
         },
         done: function(e, data) {
+
+          var fileMimeTypeInput = $("<input />", { type:'hidden', name: 'shot[mime_type]', value: data.files[0].type })
+          form.append(fileMimeTypeInput);
+
+          console.log(data)
           submitButton.prop('disabled', false);
           progressBar.text("Upload fini");
 
