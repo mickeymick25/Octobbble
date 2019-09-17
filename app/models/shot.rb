@@ -4,6 +4,17 @@ class Shot < ApplicationRecord
   belongs_to :project
 
   MEDIA_URL_EXPIRY = 7.days
+  MEDIA_TYPE_IMAGE = "image"
+  MEDIA_TYPE_UNSUPPORTED = "unsupported"
+
+  def get_media_type
+    case mime_type
+    when /\Aimage/
+      MEDIA_TYPE_IMAGE
+    else
+      MEDIA_TYPE_UNSUPPORTED
+    end
+  end
 
   def get_media_url
   	if is_media_url_expired? 
