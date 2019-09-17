@@ -1,7 +1,11 @@
 default:
   image: ruby:2.6.2
 
-job:
-  script: 
-    - "bundle install --with=test"
-    - "bundle exec rake test:models"
+test:
+  stage: test
+  script:
+  - apt-get update -qy
+  - apt-get install -y nodejs
+  - bundle install --with=test --path /cache
+  - bundle exec rake test:models
+
