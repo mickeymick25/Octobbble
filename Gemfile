@@ -27,6 +27,7 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem 'omniauth-google-oauth2'
 gem 'rails-i18n', '~> 5.1'
 gem 'aws-sdk-s3', '~> 1'
+gem 'rspec-mocks'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

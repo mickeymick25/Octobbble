@@ -7,12 +7,33 @@ image_shot:
   project_id: 1
   s3_key: upload/s3_key1
   mime_type: image/png
+  media_url: http://fake-url.com/upload/s3_key1
+  media_url_expiry: <%= 7.days.from_now %>
 
-video_shot:
+image_shot_expired_url:
   title: Title2
   description: Some description2
   user_id: 1
   project_id: 1
   s3_key: upload/s3_key2
-  mime_type: video/mpg
+  mime_type: image/png
+  media_url: http://fake-url.com/upload/s3_key2
+  media_url_expiry: <%= 1.days.ago %>
 
+video_shot:
+  title: Title3
+  description: Some description3
+  user_id: 1
+  project_id: 1
+  s3_key: upload/s3_key3
+  mime_type: video/mpg
+  media_url: http://fake-url.com/upload/s3_key3
+  media_url_expiry: <%= 7.days.from_now %>
+
+shot_without_url:
+  title: Title3
+  description: Some description4
+  user_id: 1
+  project_id: 1
+  s3_key: upload/s3_key4
+  mime_type: image/png
