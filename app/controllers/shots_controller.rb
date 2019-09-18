@@ -1,6 +1,12 @@
 class ShotsController < ApplicationController
-  before_action :set_shot, only: [:edit, :update, :destroy]
+  before_action :set_shot, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+
+
+  # GET /shots/1
+  def show
+    @project = Project.find(params[:project_id])
+  end
 
   # GET /shots/1/edit
   def edit
@@ -13,7 +19,6 @@ class ShotsController < ApplicationController
     @shot = @project.shots.create(shot_params)
     @shot.user_id = current_user.id if current_user # assigns logged in user's ID to comment
     @shot.save!
-
     redirect_to @project
   end
 
@@ -22,7 +27,7 @@ class ShotsController < ApplicationController
     @project = Project.find(params[:project_id])
     respond_to do |format|
       if @shot.update(shot_params)
-        format.html { redirect_to [@project, @shot], notice: 'Shot was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Le post a été mis à jour.' }
         format.json { render :show, status: :ok, location: @shot }
       else
         format.html { render :edit }
@@ -36,7 +41,7 @@ class ShotsController < ApplicationController
     @project = Project.find(params[:project_id])
     @shot.destroy
     respond_to do |format|
-      format.html { redirect_to @project, notice: 'Shot was successfully destroyed.' }
+      format.html { redirect_to @project, notice: 'Le post a été supprimé.' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,5 @@
 <div class="section">
 	<div class="container">
-		<h1 class="title is-3"><%= @shot.title %></h1>
 		<div class="columns">
 			<div class="column is-8">
 				<span class="by has-text-grey-light">by</span>
@@ -8,9 +7,7 @@
 					<%= gravatar_image_tag(@shot.user.email.gsub('spam', 'mdeering'), alt: @shot.user.name, gravatar: { size: 20 }); %>
 				</div>
 				<div class="user-name has-text-weight-bold"><%= @shot.user.name %></div>
-				<div class="projet has-text-weight-bold"><%= @shot.project_id %></div>
 				<div class="shot-time"><span class="has-text-grey-light">posted</span><span class="has-text-weight-semibold">
-					<%#= verbose_date(@shot.created_at) %>
 				</span></div>
 			</div>
 		</div>
@@ -19,13 +16,13 @@
 			<div class="column is-8">
 				<div class="shot-container">
 					<div class="shot-full">
-						 <%= image_tag @shot.s3_key_url unless @shot.s3_key.blank? %>
+						 <%= image_tag @shot.get_media_url unless @shot.s3_key.blank? %>
 					</div>
 
 					<% if user_signed_in? && (current_user.id == @shot.user_id) %>
 						<div class="buttons has-addons">
-							<%= link_to 'Edit', edit_project_shot_path(@shot.project, @shot), class: "button" %>
-							<%= link_to 'Delete', project_shot_path(@shot.project, @shot), class: "button", method: :delete, data: { confirm: 'Sûr de vouloir supprimer ce shot ?'} %>
+							<%= link_to 'Editer', edit_project_shot_path(@shot.project, @shot), class: "button" %>
+							<%= link_to 'Supprimer', project_shot_path(@shot.project, @shot), class:'button is-danger is-outlined is-fullwidth', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce post ?'} %>
 						</div>
 					<% end %>
 

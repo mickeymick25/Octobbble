@@ -23,13 +23,11 @@
 
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
           <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
-              Partager
-            </a>
+            <%= link_to 'Partager', project_shot_path(shot.project, shot), class:'dropdown-item' %>
             <% if user_signed_in? && (current_user.id == @project.user_id) %>
               <%= link_to 'Modifier', edit_project_shot_path(shot.project, shot), class: "dropdown-item" %>
               <hr class="dropdown-divider">
-              <%= link_to 'Supprimer', project_shot_path(shot.project, shot), class: "dropdown-item", method: :delete %>
+              <%= link_to 'Supprimer', project_shot_path(shot.project, shot), class:'dropdown-item', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce post ?'} %>
             <% end %>
           </div>
         </div>
