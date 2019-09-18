@@ -5,7 +5,7 @@
         <% unless project.clientlogo.blank? %>
           <%= image_tag(project.cover_url, class:'thumb') %>
         <% else %>
-          <figure class="thumb" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url()">
+          <%= image_tag('/octo-logo.png') %>
         <% end %>
       </figure>
 
