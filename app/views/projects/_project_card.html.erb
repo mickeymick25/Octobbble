@@ -1,11 +1,11 @@
 <div class="card">
   <%= link_to project, class: "project" do %>
     <div class="card-image">
-      <figure class="image is-4by3 thumb">
+      <figure class="image is-fullwidth thumb">
         <% unless project.clientlogo.blank? %>
-          <%= image_tag(project.cover_url, class:'thumb') %>
+          <%= image_tag(project.cover_url) %>
         <% else %>
-          <%= image_tag('/octo-logo.png') %>
+          <%= image_tag('placeholder_stories_card.png') %>
         <% end %>
       </figure>
 
@@ -19,7 +19,15 @@
           <% end %>
   				    </figure>
 
-          <div class="client_name"> <%= project.clientname %> </div>
+          <div class="client_name">
+            <% unless project.clientname.blank? %>
+              <%= project.clientname %>
+            <% else %>
+              <%= 'Nom du client' %>
+            <% end %>
+
+            <%= project.clientname %>
+          </div>
   			</div>
       </div>
 

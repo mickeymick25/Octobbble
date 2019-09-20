@@ -7,7 +7,7 @@ RUN gem install rails -v '5.1.6'
 
 WORKDIR /app
 ADD Gemfile Gemfile.lock /app/
-RUN bundle install
+RUN bundle install --without=test
 RUN bundle update
 
 ADD . .
