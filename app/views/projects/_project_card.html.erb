@@ -2,7 +2,7 @@
   <%= link_to project, class: "project" do %>
     <div class="card-image">
       <figure class="image is-4by3 thumb">
-        <% unless project.clientlogo.blank? %>
+        <% unless project.cover_url.blank? %>
           <%= image_tag(project.cover_url, class:'thumb') %>
         <% else %>
           <%= image_tag('/octo-logo.png') %>
