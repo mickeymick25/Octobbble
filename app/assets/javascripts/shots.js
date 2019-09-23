@@ -1,5 +1,4 @@
 document.addEventListener("turbolinks:load", function() {
-
   $(function() {
     $('.directUpload').find("input:file").each(function(i, elem) {
       var fileInput    = $(elem);
