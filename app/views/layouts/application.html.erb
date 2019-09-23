@@ -13,9 +13,9 @@
 
   <body>
     <% if flash[:notice] %>
-    	<div class="notification is-primary global-notification">
-  	  	<p class="notice"><%= notice %></p>
-    	</div>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
     <% end %>
     <% if flash[:alert] %>
       <div class="notification is-danger global-notification">
@@ -56,20 +56,19 @@
           <div class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
-      						<%= link_to user_google_oauth2_omniauth_authorize_path, class: "button is-light" do %>
-      							<span class="icon">
-      						    <i class="fab fa-google"></i>
-      						  </span>
-      						  <span>Se connecter</span>
-      						<% end %>
+                <%= link_to user_google_oauth2_omniauth_authorize_path, class: "button is-light" do %>
+                <span class="icon">
+                  <i class="fab fa-google"></i>
+                </span>
+                <span>Se connecter</span>
+                <% end %>
               </p>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-    </nav>
-
-    <%= yield %>
+  </nav>
+  <%= yield %>
   </body>
 </html>

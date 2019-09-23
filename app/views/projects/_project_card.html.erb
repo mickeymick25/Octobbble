@@ -13,11 +13,11 @@
         <div class="project-client-logo">
 
           <% unless project.clientlogo.blank? %>
-  				    <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= project.clientlogo %>)">
+              <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= project.clientlogo %>)">
           <% else %>
               <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://cdn.worldvectorlogo.com/logos/snapchat.svg')">
           <% end %>
-  				    </figure>
+              </figure>
 
           <div class="client_name">
             <% unless project.clientname.blank? %>
@@ -26,7 +26,7 @@
               <%= '-' %>
             <% end %>
           </div>
-  			</div>
+        </div>
       </div>
 
     </div>

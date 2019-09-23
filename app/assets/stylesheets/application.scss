@@ -40,15 +40,15 @@ $link-hover: darken($primary, 20%);
 @import "bulma";
 
 html, body {
-	min-height: 100vh;
-	background-color: #f4f4f4;
+  min-height: 100vh;
+  background-color: #f4f4f4;
 }
 
 .navbar{
-	border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .navcover{
-		margin-top: 1em;
+  margin-top: 1em;
 }
 
 .navbar-brand .title{
@@ -57,53 +57,53 @@ html, body {
 }
 
 .notification {
-	border-radius: none;
+  border-radius: none;
 }
 .notification:not(:last-child) {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .visible {
-	display: block !important;
+  display: block !important;
 }
 
 .drop_zone {
-	position: relative;
-	padding: 3rem 0;
-	border: 1px dashed #ccc;
-	text-align: center;
-	border-radius: 6px;
-	background-color: #f5f5f5;
-	&.dragging::before {
-		content: "";
-	  position: absolute;
-	  left: 0; width: 100%;
-	  top: 0; height: 100%;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  font-size: 1.5em;
-	  background-color: rgba($primary, .3);
-	  pointer-events: none;
-	  z-index: 99;
-	}
-	&.fire::before {
-		content: "";
-	  position: absolute;
-	  left: 0; width: 100%;
-	  top: 0; height: 100%;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  font-size: 1.5em;
-	  background-color: rgba(green, .3);
-	  pointer-events: none;
-	  z-index: 99;
-	}
+  position: relative;
+  padding: 3rem 0;
+  border: 1px dashed #ccc;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  &.dragging::before {
+    content: "";
+    position: absolute;
+    left: 0; width: 100%;
+    top: 0; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: rgba($primary, .3);
+    pointer-events: none;
+    z-index: 99;
+  }
+  &.fire::before {
+    content: "";
+    position: absolute;
+    left: 0; width: 100%;
+    top: 0; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: rgba(green, .3);
+    pointer-events: none;
+    z-index: 99;
+  }
 }
 
 #drop_zone_logo{
-	padding: 0;
+  padding: 0;
 }
 
 .progress {
@@ -119,5 +119,5 @@ html, body {
 }
 
 img {
-    image-orientation: from-image;
+  image-orientation: from-image;
 }

@@ -1,38 +1,38 @@
 <div class="section">
-	<div class="container">
-		<div class="columns">
-			<div class="column is-8">
-				<span class="by has-text-grey-light">by</span>
-				<div class="user-thumb">
-					<%= gravatar_image_tag(@shot.user.email.gsub('spam', 'mdeering'), alt: @shot.user.name, gravatar: { size: 20 }); %>
-				</div>
-				<div class="user-name has-text-weight-bold"><%= @shot.user.name %></div>
-				<div class="shot-time"><span class="has-text-grey-light">posted</span><span class="has-text-weight-semibold">
-				</span></div>
-			</div>
-		</div>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8">
+        <span class="by has-text-grey-light">by</span>
+        <div class="user-thumb">
+          <%= gravatar_image_tag(@shot.user.email.gsub('spam', 'mdeering'), alt: @shot.user.name, gravatar: { size: 20 }); %>
+        </div>
+        <div class="user-name has-text-weight-bold"><%= @shot.user.name %></div>
+        <div class="shot-time"><span class="has-text-grey-light">posted</span><span class="has-text-weight-semibold">
+        </span></div>
+      </div>
+    </div>
 
-		<div class="columns">
-			<div class="column is-8">
-				<div class="shot-container">
-					<div class="shot-full">
-						 <%= image_tag @shot.get_media_url unless @shot.s3_key.blank? %>
-					</div>
+    <div class="columns">
+      <div class="column is-8">
+        <div class="shot-container">
+          <div class="shot-full">
+             <%= image_tag @shot.get_media_url unless @shot.s3_key.blank? %>
+          </div>
 
-					<% if user_signed_in? && (current_user.id == @shot.user_id) %>
-						<div class="buttons has-addons">
-							<%= link_to 'Editer', edit_project_shot_path(@shot.project, @shot), class: "button" %>
-							<%= link_to 'Supprimer', project_shot_path(@shot.project, @shot), class:'button is-danger is-outlined is-fullwidth', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce post ?'} %>
-						</div>
-					<% end %>
+          <% if user_signed_in? && (current_user.id == @shot.user_id) %>
+            <div class="buttons has-addons">
+              <%= link_to 'Editer', edit_project_shot_path(@shot.project, @shot), class: "button" %>
+              <%= link_to 'Supprimer', project_shot_path(@shot.project, @shot), class:'button is-danger is-outlined is-fullwidth', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce post ?'} %>
+            </div>
+          <% end %>
 
-					<div class="content">
-						<%= @shot.description %>
-					</div>
+          <div class="content">
+            <%= @shot.description %>
+          </div>
 
-				</div>
-			</div>
+        </div>
+      </div>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
