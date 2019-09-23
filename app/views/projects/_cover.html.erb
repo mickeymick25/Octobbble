@@ -1,40 +1,33 @@
 <section class="hero is-dark is-bold" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= project.cover_url %>)">
-
-	<div class="hero-head">
+  <div class="hero-head">
     <header class="navcover">
       <div class="container">
-				<div class="navbar-item">
-
-					<div class="navbar-start">
-						<%= link_to projects_path, class:'button is-light is-outlined' do %>
-							<span class="icon">
-								<i class="fas fa-chevron-circle-left"></i>
-							</span>
-							<span>Retour</span>
-						<% end %>
-					</div>
-
-				</div>
-			</div>
-		</header>
-	</div>
-
-	<div class="hero-body hero-project-body">
-		<div class="container has-text-centered">
-
-			<div class="project-thumb-logo">
-				<figure class="image is-128x128">
-					<% unless project.clientlogo.blank? %>
-						<%= image_tag(project.clientlogo, class:'is-rounded') %>
-					<% else %>
-						<%= image_tag('octo_head.png', class:'is-rounded') %>
-					<% end %>
-				</figure>
-				<h1 class="title is-3"> <%= project.title %> </h1>
-				<h2 class="subtitle is-6">crée <%= project.created_at.strftime("%d %b %Y") %></h2>
-			</div>
-
-		</div>
-	</div>
-
+        <div class="navbar-item">
+          <div class="navbar-start">
+            <%= link_to projects_path, class:'button is-light is-outlined' do %>
+              <span class="icon">
+                <i class="fas fa-chevron-circle-left"></i>
+              </span>
+              <span>Retour</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="hero-body hero-project-body">
+    <div class="container has-text-centered">
+      <div class="project-thumb-logo">
+        <figure class="image is-128x128">
+          <% unless project.clientlogo.blank? %>
+            <%= image_tag(project.clientlogo, class:'is-rounded') %>
+          <% else %>
+            <%= image_tag('octo_head.png', class:'is-rounded') %>
+          <% end %>
+        </figure>
+        <h1 class="title is-3"> <%= project.title %> </h1>
+        <h2 class="subtitle is-6">crée <%= project.created_at.strftime("%d %b %Y") %></h2>
+      </div>
+    </div>
+  </div>
 </section>

@@ -29,3 +29,5 @@
 .DS_Store
 
 db/test.sqlite3
+
+**/.DS_Store
