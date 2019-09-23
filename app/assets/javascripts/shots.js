@@ -1,4 +1,20 @@
 document.addEventListener("turbolinks:load", function() {
+
+  $(".zoomable").click(function() {
+    var clickedImageSource = $(this).attr('src')
+    $("#modal_image").attr("src", clickedImageSource);
+
+    $(".modal").addClass("is-active");
+  });
+
+  $(".modal-close").click(function() {
+     $(".modal").removeClass("is-active");
+  });
+
+  $(".modal-background").click(function() {
+     $(".modal").removeClass("is-active");
+  });
+
   $(function() {
     $('.directUpload').find("input:file").each(function(i, elem) {
       var fileInput    = $(elem);

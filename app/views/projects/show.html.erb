@@ -26,3 +26,13 @@
     <% link_to 'Edit', edit_project_path(@project) %>
   </div>
 </div>
+
+<div class="modal" is-active="true">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <%= image_tag("/octo-logo.png", id: "modal_image") %>
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
