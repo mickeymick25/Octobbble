@@ -4,14 +4,17 @@ document.addEventListener("turbolinks:load", function() {
     var clickedImageSource = $(this).attr('src')
     $("#modal_image").attr("src", clickedImageSource);
     $(".modal").addClass("is-active");
+    document.documentElement.classList.add('is-clipped');
   });
 
   $(".modal-close").click(function() {
      $(".modal").removeClass("is-active");
+     document.documentElement.classList.remove('is-clipped');
   });
 
   $(".modal-background").click(function() {
      $(".modal").removeClass("is-active");
+     document.documentElement.classList.remove('is-clipped');
   });
 
   $(function() {
