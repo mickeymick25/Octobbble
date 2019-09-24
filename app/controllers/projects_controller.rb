@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_user_is_owner, only: [:edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:show]
 
   # GET /projects
@@ -73,5 +74,12 @@ class ProjectsController < ApplicationController
 
     def set_s3_direct_post
       @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
+    end
+
+    def check_user_is_owner
+      unless user_signed_in? && current_user == @project.user
+        flash[:error] = "Vous n'avez pas le droit de modifier ce projet"
+        redirect_to project_path(@project)
+      end
     end
 end

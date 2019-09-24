@@ -14,8 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    flash[:error] = 'There was a problem signing you in. Please register or try signing in later.'
-    redirect_to new_user_registration_url
+    flash[:error] = 'Veuillez vous authentifier'
+    redirect_to home_path
   end
-
 end
