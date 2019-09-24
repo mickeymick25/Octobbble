@@ -15,7 +15,7 @@
           <% unless project.clientlogo.blank? %>
               <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= project.clientlogo %>)">
           <% else %>
-              <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('octo_head.png')">
+              <figure class="image is-32x32" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'octo_head.png' %>)">
           <% end %>
               </figure>
 
