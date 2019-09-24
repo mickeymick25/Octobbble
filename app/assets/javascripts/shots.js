@@ -3,7 +3,6 @@ document.addEventListener("turbolinks:load", function() {
   $(".zoomable").click(function() {
     var clickedImageSource = $(this).attr('src')
     $("#modal_image").attr("src", clickedImageSource);
-
     $(".modal").addClass("is-active");
   });
 
@@ -32,6 +31,7 @@ document.addEventListener("turbolinks:load", function() {
         paramName:        'file',
         dataType:         'XML',
         replaceFileInput: false,
+        imageOrientation: true,
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
           progressBar.css('width', progress + '%')
