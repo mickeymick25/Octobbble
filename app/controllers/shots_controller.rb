@@ -1,7 +1,7 @@
 class ShotsController < ApplicationController
   before_action :set_shot, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  before_action :check_user_is_author, only: [:edit, :update, :destroy]
 
   # GET /shots/1
   def show
@@ -55,5 +55,12 @@ class ShotsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
       params.require(:shot).permit(:title, :description, :s3_key, :mime_type)
+    end
+
+    def check_user_is_author
+      unless user_signed_in? && current_user == @shot.user
+        flash[:error] = "Vous n'avez pas le droit de modifier ce post"
+        redirect_to project_shot_path(@shot.project, @shot)
+      end
     end
 end
