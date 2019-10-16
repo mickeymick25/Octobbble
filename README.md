@@ -1,4 +1,4 @@
-# Octobbble
+# Stories
 
 The aim of the project is to make a copycat of dribbble's website applied to the ux-tribe. The goal is to make projects more visible than what's Google Drive exposed.
 
