@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_user.projects.build
+    @project = StoryCreator.call(params[:octopod_id])
   end
 
   # GET /projects/1/edit

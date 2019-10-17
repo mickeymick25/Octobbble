@@ -17,6 +17,6 @@ module App
     # config.logger = Logger.new(STDOUT)
     config.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT))
     config.log_level = :info
-
+    config.eager_load_paths << Rails.root.join('lib')
   end
 end

@@ -28,6 +28,8 @@ gem 'omniauth-google-oauth2'
 gem 'rails-i18n', '~> 5.1'
 gem 'aws-sdk-s3', '~> 1'
 gem 'rspec-mocks'
+gem 'oj', '~> 3.9.2'
+gem 'faraday', '~> 0.15.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
