@@ -13,7 +13,6 @@ module OctopodApi
       def project project_id
         response = authenticated_connection.get("projects/#{project_id}")
         response_hash = Oj.load(response.body).deep_symbolize_keys
-        Rails.logger.info("Got project response #{response_hash} for get projects/#{project_id}")
         if (response_hash.has_key?(:id))
           OctopodApi::V0::Project.new(response_hash)
         else
@@ -36,7 +35,6 @@ module OctopodApi
           req.body = "grant_type=client_credentials&client_id=#{ENV['OCTOPOD_CLIENT_ID']}&client_secret=#{ENV['OCTOPOD_CLIENT_SECRET']}"
         end
         response_hash = Oj.load(response.body).symbolize_keys
-        Rails.logger.info("Got token response #{response_hash}")
         response_hash[:access_token]
       end
     end

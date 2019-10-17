@@ -23,6 +23,6 @@ staging:
   - apt-get install -y heroku-toolbelt
   - gem install dpl
   - dpl --provider=heroku --app=octo-stories --api-key=$HEROKU_STAGING_API_KEY
-  - heroku run <your command here> --exit-code --app my_heroku_app
+  # - heroku run <your command here> --exit-code --app my_heroku_app
   only:
   - master
