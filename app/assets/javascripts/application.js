@@ -17,6 +17,7 @@
 //= require_tree .
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require trix
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -42,4 +43,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-

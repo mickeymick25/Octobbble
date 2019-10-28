@@ -35,7 +35,6 @@
       <div class="content">
         <h4 class="project-title"><%= project.title %></h4>
         <span class="project-time"><%= time_ago_in_words(project.updated_at) %></span>
-        <div class="project-description"><%= truncate(project.description, length: 60) %></div>
       </div>
     </div>
 

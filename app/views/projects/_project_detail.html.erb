@@ -3,14 +3,13 @@
     Le projet
   </p>
 
-  <p class="panel-block">
-    <%= @project.description %>
-  </p>
+  <%= raw("<div class='panel-block'> #{@project.description} </div>")%>
 
   <% if user_signed_in? && (current_user.id == @project.user_id) %>
     <div class="panel-block">
       <%= link_to 'Modifier le projet', edit_project_path(@project), class: "button is-dark is-outlined is-fullwidth" %>
     </div>
+
     <div class="panel-block">
       <%= link_to 'Supprimer le projet', project_path, class:'button is-danger is-outlined is-fullwidth', method: :delete, data: { confirm: 'Êtes vous certain de supprimer ce projet ?'} %>
     </div>

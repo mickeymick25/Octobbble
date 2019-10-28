@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
 
 // Import a Google Font
@@ -120,4 +121,8 @@ html, body {
 
 img {
   image-orientation: from-image;
+}
+
+.trix-content{
+  background: white;
 }
