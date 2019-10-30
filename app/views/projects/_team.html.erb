@@ -3,12 +3,14 @@
     L'équipe
   </p>
 
-  <a class="panel-block">
-    <div class="user-thumb">
-      <figure class="image is-24x24">
-        <%= image_tag(@project.user.image, class:'is-rounded') %>
-      </figure>
-      <div class="user-name"><%= @project.user.name %></div>
-    </div>
-  </a>
+  <% @activities.each do |activity, people| %>
+    <a class="panel-block">
+    <span class="tag"><%= activity %></span>
+    </a>
+    <% people.each do |member| %>
+      <%= link_to("https://askbob.octo.com/users/#{member.nickname}", class:"panel-block", target: "_blank") do %>
+        <%= member.first_name+" "+member.last_name%> - <small><%= member.nickname %></small>
+      <% end %>
+    <% end %>
+  <% end %>
 </nav>

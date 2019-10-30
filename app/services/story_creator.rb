@@ -22,7 +22,7 @@ class StoryCreator
     octopod_project = octopod_client.project(@octopod_id)
     if octopod_project
       Rails.logger.info("Found octopod project #{octopod_project.name}")
-      Project.new(title: octopod_project.name, description: octopod_project.description, clientname: octopod_project.customer)  
+      Project.new(title: octopod_project.name, description: octopod_project.description, clientname: octopod_project.customer)
     else
       Rails.logger.info("No matching octopod project")
       Project.new

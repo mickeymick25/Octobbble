@@ -20,6 +20,11 @@ module OctopodApi
         end
       end
 
+      def activities project_id
+        response = authenticated_connection.get("projects/#{project_id}/activities")
+        response_hash = JSON.parse(response.body, symbolize_names: true)
+      end
+
       private
 
       def authenticated_connection
@@ -48,5 +53,16 @@ module OctopodApi
         @description = options[:mission_description]
       end
     end
+
+    class People
+      attr_reader :activity_title, :last_name, :first_name, :nickname
+      def initialize options
+        @activity_title = options[:title]
+        @last_name = options[:last_name]
+        @first_name = options[:first_name]
+        @nickname   = options[:nickname]
+      end
+    end
+
   end
 end

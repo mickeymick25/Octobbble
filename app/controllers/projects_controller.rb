@@ -10,11 +10,14 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1
+  # GET /projects/1?octopod_id=
   def show
     @new_shot = @project.shots.build
+    @activities = TeamCreator.team(params[:octopod_id])
   end
 
   # GET /projects/new
+  # GET /projects/new?octopod_id=
   def new
     @project = StoryCreator.call(params[:octopod_id])
   end
