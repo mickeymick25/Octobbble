@@ -1,16 +1,21 @@
-<nav class="panel panel-team">
-  <p class="panel-heading">
-    L'équipe
-  </p>
+<% if @activities %>
+  <nav class="panel panel-team">
+    <p class="panel-heading">
+      L'équipe
+    </p>
 
-  <% @activities.each do |activity, people| %>
-    <a class="panel-block">
-    <span class="tag"><%= activity %></span>
-    </a>
-    <% people.each do |member| %>
-      <%= link_to("https://askbob.octo.com/users/#{member.nickname}", class:"panel-block", target: "_blank") do %>
-        <%= member.first_name+" "+member.last_name%> - <small><%= member.nickname %></small>
+    <% @activities.each do |activity, people| %>
+      <a class="panel-block">
+      <span class="tag"><%= activity %></span>
+      </a>
+      <% people.each do |member| %>
+        <%= link_to("https://askbob.octo.com/users/#{member.nickname}", class:"panel-block", target: "_blank") do %>
+            <!-- <figure class="image is-32x32">
+              <%#= image_tag(member.photo, class: 'is-rounded') %>
+            </figure> -->
+            <%= member.first_name+" "+member.last_name%> - <small><%= member.nickname %></small>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</nav>
+  </nav>
+<% end %>

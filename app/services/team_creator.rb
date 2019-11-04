@@ -13,7 +13,6 @@ class TeamCreator
     if (@octopod_id)
       get_project_team_from_octopod
     else
-      #Project.new
       []
     end
   end
@@ -29,7 +28,10 @@ class TeamCreator
           entry[:people].map{ |i|
             #Rails.logger.info("Octopod_team_member_people:: "+  i[:last_name] )
             #Rails.logger.info("Octopod_team_member_people:: "+  i[:first_name] )
-            OctopodApi::V0::People.new(title: entry[:title], last_name: i[:last_name], first_name: i[:first_name], nickname: i[:nickname] )
+            person = OctopodApi::V0::People.new(title: entry[:title], last_name: i[:last_name], first_name: i[:first_name], nickname: i[:nickname] )
+            #photo = AskbobApi::V2::Client.new().person(person.nickname)[:data][:tiny_photo]
+            #person.photo = photo
+            person
           }
         }.flatten.group_by{|member| member.activity_title}
         Rails.logger.info(members)

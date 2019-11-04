@@ -56,6 +56,7 @@ module OctopodApi
 
     class People
       attr_reader :activity_title, :last_name, :first_name, :nickname
+      attr_accessor :photo
       def initialize options
         @activity_title = options[:title]
         @last_name = options[:last_name]

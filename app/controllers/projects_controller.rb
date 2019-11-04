@@ -13,7 +13,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1?octopod_id=
   def show
     @new_shot = @project.shots.build
-    @activities = TeamCreator.team(params[:octopod_id])
+    if !TeamCreator.team(params[:octopod_id]).empty?
+      @activities = TeamCreator.team(params[:octopod_id])
+      Rails.logger.info "Team is not empty!"
+    end
   end
 
   # GET /projects/new
